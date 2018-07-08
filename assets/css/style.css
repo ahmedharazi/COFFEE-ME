@@ -1,6 +1,26 @@
+h1{
+    color: #f4f4f4;
+    text-align: center;
+    font-size: 70px;
+    margin-top: 40px;
+}
+h2{
+    color: #f4f4f4;
+    text-align: left;
+    font-size: 30px;
+}
 .body{
     background-image: url(https://files.slack.com/files-pri/TA59T4GR4-FBLMQ250D/coffeeme.jpg);
     background-size: 100%;
+}
+.table{
+    background: blue;
+}
+#news{
+    color: white;
+}
+tr{
+    color: white;
 }
 *,*:after,*:before {
     box-sizing:border-box;
@@ -40,7 +60,9 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px
   }
-  
+.Search{
+    margin: 200px;
+}
   .searchform input, .searchform button {
       float: left
   }
