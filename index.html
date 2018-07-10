@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
 	<title>Shows GIF Generator</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	 crossorigin="anonymous">
@@ -23,35 +24,133 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 btn-group-vertical">
-			</div>
-			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-				<div class="row">
-					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2" id="review">
-
-					</div>
-					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-						<a href="#"></a>
-					</div>
-
+				<div id="map">
 				</div>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+					<div class="row">
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2" id="review">
+
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+							<a href="#"></a>
+						</div>
+					</div>
+				</div>
+
 			</div>
-		</div>
-		<div class="row">
-			<h2>Todays Headline</h2>
-			<div id="news" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
-			
+			<div class="row">
+				<h2>Todays Headline</h2>
+				<div id="news" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
+
 				<table class="table table-bordered-sm">
 					<thread>
 						<tr>
-							<th id ="section"> Section</th>
-							<th id ="title"> Title</th>
-							<th id ="abstract"> Abstract</th>
+							<th id="section"> Section</th>
+							<th id="title"> Title</th>
+							<th id="abstract"> Abstract</th>
 						</tr>
 					</thread>
 				</table>
 			</div>
 		</div>
 	</div>
+	<style>
+			html,body, #map {
+				height: 100%;
+				margin: 0px;
+				padding: 0px
+			}
+		</style>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjpDu3vR2SLQOy5-JcCeuUzkvL4PrTd6w&libraries=places"></script>
+	<script>
+		//global scope
+		var map;
+		var infowindow;
+		var request;
+		var service;
+		var markers = [];
+
+		function initialize() {
+			var center = new google.maps.LatLng(28.5383, -81.3792);
+			console.log(center);
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: center,
+				zoom: 13
+			});
+			console.log(map);
+
+			request = {
+				location: center,
+				// in meter (5miles)
+				radius: 8047,
+				types: ['cafe']
+			};
+			console.log(request);
+			// opens info window in google map 
+			infowindow = new google.maps.InfoWindow();
+			console.log(infowindow);
+			service = new google.maps.places.PlacesService(map);
+			console.log(service);
+
+			service.nearbySearch(request, callback);
+			//console.log(callback);
+
+			// listen for click on map and take that to look for other coffe shops in that location 
+			google.maps.event.addListener(map, 'rightclick', function (event) {
+				console.log(map);
+				map.setCenter(event.latLng)
+				clearResults(markers)
+
+				request = {
+					location: event.latLng,
+					radius: 8047,
+					types: ['cafe']
+				};
+				service.nearbySearch(request, callback);
+			})
+		}
+
+		// get back good result, no error connection to server
+		function callback(results, status) {
+			console.log(status);
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				console.log(status);
+				for (var i = 0; i < results.length; i++) {
+					// var place = results[i];
+					markers.push(createMarker(results[i]));
+					console.log(markers);
+				}
+			}
+		}
+
+		// creates and places markers on map 
+		function createMarker(place) {
+			console.log(place);
+			var placeLoc = place.geometry.location;
+			console.log(placeLoc);
+			var marker = new google.maps.Marker({
+				map: map,
+				position: place.geometry.location
+			});
+
+			// add lister for click on marker and info window pops
+			google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(place.name);
+				infowindow.open(map, this);
+			});
+			return marker;
+		}
+
+		// clear markers off map everytime another click is made
+		function clearResults(markers) {
+			for (var m in markers) {
+				markers[m].setMap(null)
+			}
+			markers = []
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	 crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
