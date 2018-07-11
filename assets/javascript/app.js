@@ -42,7 +42,7 @@ function initialize() {
 }
 
 // get back good result, no error connection to server
-var rating
+
 function callback(results, status) {
     console.log(status);
     console.log(results);
@@ -51,17 +51,25 @@ function callback(results, status) {
             console.log(results);
             // var place = results[i];
             var rate = JSON.stringify(results[i].rating);
-            console.log(rate);
-            var geo = JSON.stringify(results[i].geometry);
-            rating = $("<div>");
+            var rating = $("<div>");
             rating.text(rate);
-            //$("#rating").append(rating);
+            $("#rating").append(rating);
+            console.log(rate);
+            var geo = JSON.stringify(results[i].vicinity);
+            var location = $("<div>");
+            location.text(geo);
+            $("#vicinity").append(location);
+            var name = JSON.stringify(results[i].name);
+            var namely = $("<div>");
+            namely.text(name);
+            $("#name").append(namely);
+            
             markers.push(createMarker(results[i]));
             // console.log(markers);
         }
     }
 }
-$()
+
 // creates and places markers on map 
 function createMarker(place) {
     console.log(place);
@@ -69,14 +77,7 @@ function createMarker(place) {
     var marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location
-        
     });
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-          'Place ID: ' + place.place_id + '<br>' +
-          place.formatted_address + '</div>');
-        infowindow.open(map, this);
-      });
     console.log(marker);
 
     // add lister for click on marker and info window pops

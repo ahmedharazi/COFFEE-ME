@@ -19,12 +19,24 @@ h2{
 #news{
     color: white;
 }
+#coffeeInfo{
+    width: 600px;
+}
+#rating{
+    width: 100px;
+}
+#name{
+    width: 300px;
+}
+#vicinity{
+    width: 600px;
+}
 tr{
     color: white;
 }
 #map{
     height: 400px;
-    width: 300px;
+    width: 400px;
     margin: 30px;
     padding: 0px;
 
