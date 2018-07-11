@@ -1,39 +1,9 @@
 
-function Headline() {
-    $.ajax({
-        url: "https://api.nytimes.com/svc/topstories/v2/home.json?"
-            + "&api-key=72e2a44892c743248b362965fbe0d583&limit=10",
-        method: "GET"
-    }).then(function (response) {
-        var news = response.results;
 
-        console.log(news);
-        for (var i = 0; i < news.length; i++) {
-            console.log(news[i]);
-            var temp1 = JSON.stringify(news[i].section);
-            var temp2 = JSON.stringify(news[i].title);
-            var temp3 = JSON.stringify(news[i].abstract);
-            console.log(temp1);
-
-
-            var section = $("<div>");
-            section.text(temp1);
-            var title = $("<div>");
-            title.text(temp2);
-            var abstract = $("<div>");
-            abstract.text(temp3);
-            
-            $("#section").append(section);
-            $("#title").append(title);
-            $("#abstract").append(abstract);
-        }
-    });
-};
-Headline();
-
-
+//global scope
 var map;
 var infowindow;
+
 var request;
 var service;
 var markers = [];
@@ -72,22 +42,42 @@ function initialize() {
 }
 
 // get back good result, no error connection to server
+var rating
 function callback(results, status) {
+    console.log(status);
+    console.log(results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
+            console.log(results);
             // var place = results[i];
+            var rate = JSON.stringify(results[i].rating);
+            console.log(rate);
+            var geo = JSON.stringify(results[i].geometry);
+            rating = $("<div>");
+            rating.text(rate);
+            //$("#rating").append(rating);
             markers.push(createMarker(results[i]));
+            // console.log(markers);
         }
     }
 }
-
+$()
 // creates and places markers on map 
 function createMarker(place) {
+    console.log(place);
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location
+        
     });
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+          'Place ID: ' + place.place_id + '<br>' +
+          place.formatted_address + '</div>');
+        infowindow.open(map, this);
+      });
+    console.log(marker);
 
     // add lister for click on marker and info window pops
     google.maps.event.addListener(marker, 'click', function () {
@@ -105,3 +95,41 @@ function clearResults(markers) {
     markers = []
 }
 google.maps.event.addDomListener(window, 'load', initialize);
+
+$("#search").on("click", function(event){
+    event.initialize();
+})
+//$("#map").append(map);
+
+
+function Headline() {
+    $.ajax({
+        url: "https://api.nytimes.com/svc/topstories/v2/home.json?"
+            + "&api-key=72e2a44892c743248b362965fbe0d583&limit=10",
+        method: "GET"
+    }).then(function (response) {
+        var news = response.results.slice(0, 5);
+
+        // console.log(news);
+        for (var i = 0; i < news.length; i++) {
+            // console.log(news[i]);
+            var temp1 = JSON.stringify(news[i].section);
+            var temp2 = JSON.stringify(news[i].title);
+            var temp3 = JSON.stringify(news[i].abstract);
+            // console.log(temp1);
+
+
+            var section = $("<div>");
+            section.text(temp1);
+            var title = $("<div>");
+            title.text(temp2);
+            var abstract = $("<div>");
+            abstract.text(temp3);
+
+            $("#section").append(section);
+            $("#title").append(title);
+            $("#abstract").append(abstract);
+        }
+    });
+};
+Headline();
