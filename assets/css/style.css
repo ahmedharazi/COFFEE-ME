@@ -22,6 +22,15 @@ h2{
 #coffeeInfo{
     width: 600px;
 }
+#rating{
+    width: 100px;
+}
+#name{
+    width: 300px;
+}
+#vicinity{
+    width: 600px;
+}
 tr{
     color: white;
 }
