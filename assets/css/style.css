@@ -10,24 +10,35 @@ h2{
     font-size: 30px;
 }
 .body{
-    background-image: url(https://files.slack.com/files-pri/TA59T4GR4-FBLMQ250D/coffeeme.jpg);
+    background-image: url(../images/coffee.jpg);
     background-size: 100%;
 }
+
+#search{
+    
+    background-color: rgb(22, 101, 190);
+
+}
+
+
 .table{
-    background: #0d76be;
+    background: rgba(127, 126, 129, 0.5); /* Table */
+    transition: all 2s;
+}
+.table:hover{
+    transform: scale(1.1);
 }
 #news{
     color: white;
 }
-#coffeeInfo{
-    width: 600px;
+
+
+/* #coffeeInfo{
+    width: auto;
 }
-#rating{
-    width: 100px;
-}
-#name{
-    width: 300px;
-}
+#news{
+    width: auto;
+} */
 #vicinity{
     width: 600px;
 }
@@ -36,12 +47,19 @@ tr{
 }
 #map{
     height: 400px;
-    width: 400px;
-    margin: 30px;
-    padding: 0px;
-
+    width: 1100px;
+    padding: 10px;
+    border: 2px solid white;
+    margin-right: 105px; /* This is where you can move the map left or right */
+    
 }
 
+.form{
+
+    float: right;
+    left: 200%;
+
+}
 *,*:after,*:before {
     box-sizing:border-box;
     -moz-box-sizing:border-box;
@@ -60,10 +78,13 @@ tr{
     color:#fff
   }
   
+
+
+
   /*--------------------------------------------------------------
   2.0 - SEARCH FORM
   --------------------------------------------------------------*/
-  .searchform {
+  /* .searchform {
     background:#f4f4f4;
     background:rgba(244,244,244,.79);
     border: 1px solid #d3d3d3;
@@ -83,9 +104,7 @@ tr{
 .Search{
     margin: 200px;
 }
-  .searchform input, .searchform button {
-      float: left
-  }
+ 
   .searchform input {
       background:#fefefe;
       border: none;
@@ -138,4 +157,4 @@ tr{
   }
 .searchform button:hover {
           opacity:.9;
-        }
+        } */

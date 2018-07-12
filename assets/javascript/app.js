@@ -1,5 +1,3 @@
-
-
 //global scope
 var map;
 var infowindow;
@@ -18,8 +16,8 @@ function initialize() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: pos,
             zoom: 13
-         });
-         service = new google.maps.places.PlacesService(map);
+        });
+        service = new google.maps.places.PlacesService(map);
 
         request = {
             location: pos,
@@ -65,14 +63,16 @@ function initialize() {
             handleLocationError(false, infowindow, map.getCenter());
         }
     });
+
     function handleLocationError(browserHasGeolocation, infowindow, pos) {
-            infowindow.setPosition(pos);
-            infowindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
-            infowindow.open(map);
-        }
+        infowindow.setPosition(pos);
+        infowindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infowindow.open(map);
     }
+}
+
 
 //service.nearbySearch(request, callback);
 
@@ -81,7 +81,9 @@ function initialize() {
 function callback(results, status) {
 
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
+        var data = results.slice(0, 10);
+
+        for (var i = 0; i < data.length; i++) {
             console.log(results);
             // var place = results[i];
             var rate = JSON.stringify(results[i].rating);
@@ -137,13 +139,16 @@ $("#search").on("click", function (event) {
 //$("#map").append(map);
 
 
+
+
+
 function Headline() {
     $.ajax({
-        url: "https://api.nytimes.com/svc/topstories/v2/home.json?"
-            + "&api-key=72e2a44892c743248b362965fbe0d583&limit=10",
+        url: "https://api.nytimes.com/svc/topstories/v2/home.json?" +
+            "&api-key=72e2a44892c743248b362965fbe0d583&limit=10",
         method: "GET"
     }).then(function (response) {
-        var news = response.results.slice(0, 5);
+        var news = response.results.slice(0, 3);
 
         // console.log(news);
         for (var i = 0; i < news.length; i++) {

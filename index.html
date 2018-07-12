@@ -4,61 +4,106 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
-	<title>Shows GIF Generator</title>
+	<title>CoffeeMe</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	 crossorigin="anonymous">
+	    crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body class="body">
-	<div class="container">
-		<h1>CoffeeMe</h1>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 Search">
-				<form class="searchform cf">
-					<input type="text" placeholder="Coffee shops near me">
-					<button type="submit" id="search">Search</button>
-				</form>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-				<div id="map"></div>
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" id="coffeeInfo">
-				<table class="table table-bordered-sm">
-					<thread>
-						<tr>
-							<th id="rating"> Rating</th>
-							<th id="name">Name</th>
-							<th id="vicinity">Address</th>
-						</tr>
-					</thread>
-				</table>
-			</div>
-			<div class="row">
-				<div id="news" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
-				<h2>Todays Headline</h2>
-				<table class="table table-bordered-sm">
-					<thread>
-						<tr>
-							<th id="section"> Section</th>
-							<th id="title"> Title</th>
-							<th id="abstract"> Abstract</th>
-						</tr>
-					</thread>
-				</table>
-			</div>
-		</div>
-	</div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	 crossorigin="anonymous"></script>
+	<div class="container">
+
+		<h1 class="site-heading text-center text-white d-none d-lg-block">
+			<span class="site-heading-lower">CoffeeMe</span>
+		</h1>
+		<br>
+		<br>
+
+		<!-- the button  -->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<form class="form">
+						<div class="form-group" id="searchform cf">
+							<button type="button" class="btn btn-primary btn-lg" id="search">Coffee shops near me</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- the map  -->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<section class="page-section cta">
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<div id="map"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+
+
+		<br>
+		<br>
+		<!-- coffeeInfo -->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ></div>	
+			<table id="coffeeInfo"class="table table-bordered-sm">
+				<thread>
+					<tr>
+						<th id="rating"><strong>Rating</strong> </th>
+						<th id="name"><strong>Name</strong> </th>
+						<th id="vicinity"><strong>Address</strong> </th>
+					</tr>
+				</thread>
+			</table>
+
+		<br>
+		<br>
+
+		<!-- the new section -->
+		<h2>Todays Headline</h2>
+		<br>
+		<br>
+		
+		<div class="row">
+			<div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
+			<table id="news" class="table table-bordered-sm">
+				<thread>
+					<tr>
+						<th id="section"> Section</th>
+						<th id="title"> Title</th>
+						<th id="abstract"> Abstract</th>
+					</tr>
+				</thread>
+			</table>
+		</div>
+
+		<!-- footer -->
+	<footer class="footer text-faded text-center py-5">
+		<div class="container">
+			<p class="m-5 small">Copyright &copy; CoffeeMe 2018</p>
+		</div>
+	</footer>
+	<br><br>
+
+
+	<!-- jquery -->
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script> -->
+	<!-- A.jax -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-	 crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script>
+		
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-	 crossorigin="anonymous"></script>
+	    crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjpDu3vR2SLQOy5-JcCeuUzkvL4PrTd6w&limit=10&libraries=places"></script>
 	<script src="assets/javascript/app.js"></script>
