@@ -32,13 +32,6 @@ h2{
     color: white;
 }
 
-
-/* #coffeeInfo{
-    width: auto;
-}
-#news{
-    width: auto;
-} */
 #vicinity{
     width: 600px;
 }
@@ -52,6 +45,9 @@ tr{
     border: 2px solid white;
     margin-right: 105px; /* This is where you can move the map left or right */
     
+}
+h1{
+    font-family: 'Roboto', sans-serif;
 }
 
 .form{

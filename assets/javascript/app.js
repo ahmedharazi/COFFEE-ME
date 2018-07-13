@@ -1,10 +1,32 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyC3kqTXmvxXeWDy2OZQ7pPULJ5DooHEOt4",
+    authDomain: "coffeeme-e2fbc.firebaseapp.com",
+    databaseURL: "https://coffeeme-e2fbc.firebaseio.com",
+    projectId: "coffeeme-e2fbc",
+    storageBucket: "coffeeme-e2fbc.appspot.com",
+    messagingSenderId: "96069961196"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+
 //global scope
+
 var map;
 var infowindow;
 
 var request;
 var service;
 var markers = [];
+var rating = "";
+var namely = "";
+var location = "";
+database.ref().push({
+    rating : rating,
+    name : namely,
+    location : location,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+})
 
 function initialize() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -87,16 +109,16 @@ function callback(results, status) {
             console.log(results);
             // var place = results[i];
             var rate = results[i].rating;
-            var rating = $("<div>");
+            rating = $("<div>");
             rating.text(rate);
             $("#rating").append(rating);
 
             var geo = results[i].vicinity;
-            var location = $("<div>");
+            location = $("<div>");
             location.text(geo);
             $("#vicinity").append(location);
             var name = results[i].name;
-            var namely = $("<div>");
+            namely = $("<div>");
             namely.text(name);
             $("#name").append(namely);
 
