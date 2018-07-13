@@ -6,6 +6,15 @@ var request;
 var service;
 var markers = [];
 
+$(document).ready(function(){
+    $("#search").on("click", function () {
+        $("#coffeeInfo").show();
+        })
+});
+
+
+
+
 function initialize() {
     navigator.geolocation.getCurrentPosition(function (position) {
         var pos = {
@@ -133,9 +142,9 @@ function clearResults(markers) {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
-$("#search").on("click", function (event) {
-    event.initialize();
-})
+// $("#search").on("click", function (event) {
+//     event.initialize();
+// })
 //$("#map").append(map);
 
 
