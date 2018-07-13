@@ -1,14 +1,4 @@
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyC3kqTXmvxXeWDy2OZQ7pPULJ5DooHEOt4",
-    authDomain: "coffeeme-e2fbc.firebaseapp.com",
-    databaseURL: "https://coffeeme-e2fbc.firebaseio.com",
-    projectId: "coffeeme-e2fbc",
-    storageBucket: "coffeeme-e2fbc.appspot.com",
-    messagingSenderId: "96069961196"
-  };
-  firebase.initializeApp(config);
-  var database = firebase.database();
+
 
 //global scope
 
@@ -18,15 +8,8 @@ var infowindow;
 var request;
 var service;
 var markers = [];
-var rating = "";
-var namely = "";
-var location = "";
-database.ref().push({
-    rating : rating,
-    name : namely,
-    location : location,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
-})
+
+
 
 $(document).ready(function(){
     $("#search").on("click", function () {
@@ -70,6 +53,8 @@ function initialize() {
                 location: event.latLng,
                 radius: 8047,
                 types: ["cafe"]
+
+
             };
             console.log(request);
             service.nearbySearch(request, callback);
@@ -118,16 +103,16 @@ function callback(results, status) {
             console.log(results);
             // var place = results[i];
             var rate = results[i].rating;
-            rating = $("<div>");
+            var rating = $("<div>");
             rating.text(rate);
             $("#rating").append(rating);
 
             var geo = results[i].vicinity;
-            location = $("<div>");
+            var location = $("<div>");
             location.text(geo);
             $("#vicinity").append(location);
             var name = results[i].name;
-            namely = $("<div>");
+            var namely = $("<div>");
             namely.text(name);
             $("#name").append(namely);
 
