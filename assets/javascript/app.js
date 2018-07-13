@@ -23,7 +23,7 @@ function initialize() {
             location: pos,
             // in meter (5miles)
             radius: 8047,
-            types: ['cafe']
+            types: ["cafe"]
         };
         // opens info window in google map 
         infowindow = new google.maps.InfoWindow();
@@ -38,7 +38,7 @@ function initialize() {
             request = {
                 location: event.latLng,
                 radius: 8047,
-                types: ['cafe']
+                types: ["cafe"]
             };
             console.log(request);
             service.nearbySearch(request, callback);
@@ -86,16 +86,16 @@ function callback(results, status) {
         for (var i = 0; i < data.length; i++) {
             console.log(results);
             // var place = results[i];
-            var rate = JSON.stringify(results[i].rating);
+            var rate = results[i].rating;
             var rating = $("<div>");
             rating.text(rate);
             $("#rating").append(rating);
 
-            var geo = JSON.stringify(results[i].vicinity);
+            var geo = results[i].vicinity;
             var location = $("<div>");
             location.text(geo);
             $("#vicinity").append(location);
-            var name = JSON.stringify(results[i].name);
+            var name = results[i].name;
             var namely = $("<div>");
             namely.text(name);
             $("#name").append(namely);
@@ -153,9 +153,9 @@ function Headline() {
         // console.log(news);
         for (var i = 0; i < news.length; i++) {
             // console.log(news[i]);
-            var temp1 = JSON.stringify(news[i].section);
-            var temp2 = JSON.stringify(news[i].title);
-            var temp3 = JSON.stringify(news[i].abstract);
+            var temp1 = news[i].section;
+            var temp2 = news[i].title;
+            var temp3 = news[i].abstract;
             // console.log(temp1);
 
 
