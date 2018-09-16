@@ -93,8 +93,6 @@ function initialize() {
 }
 
 
-//service.nearbySearch(request, callback);
-
 // get back good result, no error connection to server
 
 function callback(results, status) {
@@ -120,7 +118,6 @@ function callback(results, status) {
             $("#name").append(namely);
 
             markers.push(createMarker(results[i]));
-            // console.log(markers);
         }
     }
 }
@@ -128,7 +125,7 @@ function callback(results, status) {
 // creates and places markers on map 
 function createMarker(place) {
     console.log(place);
-    var placeLoc = place.geometry.location;
+    
     var marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location
@@ -155,11 +152,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 $("#search").on("click", function (event) {
     event.initialize();
 })
-//$("#map").append(map);
-
-
-
-
 
 function Headline() {
     $.ajax({
@@ -171,13 +163,11 @@ function Headline() {
 
         // console.log(news);
         for (var i = 0; i < news.length; i++) {
-            // console.log(news[i]);
+         
             var temp1 = news[i].section;
             var temp2 = news[i].title;
             var temp3 = news[i].abstract;
-            // console.log(temp1);
-
-
+        
             section = $("<div>");
             section.text(temp1);
             title = $("<div>");
