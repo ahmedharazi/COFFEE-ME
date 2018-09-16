@@ -1,3 +1,2 @@
-https://github.com/ahmedharazi/COFFEE-ME-.gitProject#1
-
+https://ahmedharazi.github.io/COFFEE-ME-/
 
