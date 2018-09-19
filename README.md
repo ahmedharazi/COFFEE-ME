@@ -1,5 +1,5 @@
 # COFFEE-ME-
-# (Project-1) CoffeMe
+
 ## How The App Should Work
 This App is usefull to find a coffeshop near you were you can meet with your friends, employers, classmate ect. You will get 10 options to pick the one that you wnat to go compering the rating' place and the location.
  ![app Image](/assets/images/CoffeMeLocation.png)
