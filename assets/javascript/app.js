@@ -152,7 +152,8 @@ function clearResults(markers) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $("#search").on("click", function (event) {
-    event.initialize();
+    event.preventDefault();
+    initialize();
 })
 //$("#map").append(map);
 
