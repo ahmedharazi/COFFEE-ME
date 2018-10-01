@@ -9,5 +9,5 @@ This App is usefull to find a coffeshop near you were you can meet with your fri
  ## You can see the app on the following link
 https://ahmedharazi.github.io/COFFEE-ME-/
  ## You can see the app code on the following link
-https://ahmedharazi.github.io/COFFEE-ME-/
+https://github.com/ahmedharazi/COFFEE-ME-
 
