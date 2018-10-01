@@ -1,15 +1,12 @@
 //global scope
-
 var map;
 var infowindow;
-
 var request;
 var service;
 var markers = [];
 var section = "";
 var title = "";
 var abstract = "";
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyBY-s5tlp_CHpiB9hPD7itnEC8grnylHPc",
@@ -22,6 +19,7 @@ var config = {
   firebase.initializeApp(config);
   var database = firebase.database();
 
+  
 function initialize() {
     navigator.geolocation.getCurrentPosition(function (position) {
         var pos = {
@@ -34,7 +32,6 @@ function initialize() {
             zoom: 13
         });
         service = new google.maps.places.PlacesService(map);
-
         request = {
             location: pos,
             // in meter (5miles)
@@ -43,20 +40,15 @@ function initialize() {
         };
         // opens info window in google map 
         infowindow = new google.maps.InfoWindow();
-
         service.nearbySearch(request, callback);
-
         // listen for click on map and take that to look for other coffe shops in that location 
         google.maps.event.addListener(map, 'rightclick', function (event) {
             map.setCenter(event.latLng)
             clearResults(markers)
-
             request = {
                 location: event.latLng,
                 radius: 8047,
                 types: ["cafe"]
-
-
             };
             console.log(request);
             service.nearbySearch(request, callback);
@@ -68,7 +60,6 @@ function initialize() {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-
                 infowindow.setPosition(pos);
                 infowindow.setContent('Current Location.');
                 infowindow.open(map);
@@ -81,7 +72,6 @@ function initialize() {
             handleLocationError(false, infowindow, map.getCenter());
         }
     });
-
     function handleLocationError(browserHasGeolocation, infowindow, pos) {
         infowindow.setPosition(pos);
         infowindow.setContent(browserHasGeolocation ?
@@ -90,17 +80,11 @@ function initialize() {
         infowindow.open(map);
     }
 }
-
-
 //service.nearbySearch(request, callback);
-
 // get back good result, no error connection to server
-
 function callback(results, status) {
-
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         var data = results.slice(0, 5);
-
         for (var i = 0; i < data.length; i++) {
             console.log(results);
             // var place = results[i];
@@ -108,7 +92,6 @@ function callback(results, status) {
             var rating = $("<div>");
             rating.text(rate);
             $("#rating").append(rating);
-
             geo = results[i].vicinity;
             var location = $("<div>");
             location.text(geo);
@@ -117,13 +100,11 @@ function callback(results, status) {
             var namely = $("<div>");
             namely.text(name);
             $("#name").append(namely);
-
             markers.push(createMarker(results[i]));
             // console.log(markers);
         }
     }
 }
-
 // creates and places markers on map 
 function createMarker(place) {
     console.log(place);
@@ -133,7 +114,6 @@ function createMarker(place) {
         position: place.geometry.location
     });
     console.log(marker);
-
     // add lister for click on marker and info window pops
     google.maps.event.addListener(marker, 'click', function () {
         infowindow.setContent(place.name);
@@ -141,7 +121,6 @@ function createMarker(place) {
     });
     return marker;
 }
-
 // clear markers off map everytime another click is made
 function clearResults(markers) {
     for (var m in markers) {
@@ -151,12 +130,13 @@ function clearResults(markers) {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
+
+
 $("#search").on("click", function (event) {
     event.preventDefault();
     initialize();
-})
-//$("#map").append(map);
-
+    $("#coffeeInfo ").show();
+});
 
 
 
