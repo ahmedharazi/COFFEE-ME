@@ -1,4 +1,3 @@
-
 //global scope
 
 var map;
@@ -22,15 +21,6 @@ var config = {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
-
-$(document).ready(function(){
-    $("#search").on("click", function () {
-        $("#coffeeInfo").show();
-        })
-});
-
-
-
 
 function initialize() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -109,7 +99,7 @@ function initialize() {
 function callback(results, status) {
 
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var data = results.slice(0, 10);
+        var data = results.slice(0, 5);
 
         for (var i = 0; i < data.length; i++) {
             console.log(results);
@@ -164,7 +154,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 $("#search").on("click", function (event) {
     event.initialize();
 })
-$("#map").append(map);
+//$("#map").append(map);
 
 
 
