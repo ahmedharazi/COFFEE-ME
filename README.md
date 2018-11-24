@@ -7,7 +7,7 @@ This App is usefull to find a coffeshop near you were you can meet with your fri
 ![app Image](/assets/images/SelectHeadlines.png)
  On this App it is used Google API (for the location and search by location), nytimes API (headlines), firebase (to store data), bootstrap, CSS, Ajax, jQuery and javascript.
  ## You can see the app on the following link
-https://ahmedharazi.github.io/COFFEE-ME-/
+https://ahmedharazi.github.io/COFFEE-ME/
  ## You can see the app code on the following link
 https://github.com/ahmedharazi/COFFEE-ME-
 
