@@ -1,61 +1,175 @@
-h1{
-    color: #f4f4f4;
+.content {display:none;}
+.preload { 
+    width:50px;
+    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.page{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+body{
+    background-size: 100%;
+    background-image: url(../images/coffee.jpg) !important;
+    
+
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
     text-align: center;
-    font-size: 70px;
-    margin-top: 40px;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  .fa-linkedin {
+    background: #007bb5 !important;
+    color: white !important;
+  }
+  
+
+/* page Logo */
+
+span{
+    font-family: 'Pacifico', cursive;
+    font-size: 60px;
+}
+
+/* boxes where the tables for coffee shops and headlines */
+.container {
+    background: rgb(199, 197, 99);
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 24px;
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Header were the logo and button are located */
+.flexbox{
+    display: table;
+    width: 100%;
+    background: rgb(245, 225, 225);
+}
+.flexbox__item{
+    display: table-cell;
+    vertical-align: middle;
+}
+/* the the botton in the nav bar  */
+.navigation--main {
+    float: right;
+    margin-right: 50px;
+}
+
+.nav--main {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+
+li{
+    display: inline-block;
+    zoom: 1;
+    padding: 0.75rem 1.5rem;
+}
+a {
+    border-bottom: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 h2{
-    color: #f4f4f4;
-    text-align: left;
-    font-size: 30px;
-}
-.body{
-    background-image: url(../images/coffee.jpg);
-    background-size: 100%;
+    color: #262526;
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height: 1.135;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    display: block;
+    text-align: center;
+
 }
 
-#search{
-    
-    background-color: rgb(22, 101, 190);
+#rating, #vicinity, #name{
+    display: table-cell;
+    background: wheat;
+    font-display: #262526;
+}
 
+#section, #title, #abstract{
+    display: table-cell;
+    background: wheat;
+    font-display: #262526;
+}
+
+
+p{
+    background: rgb(245, 225, 225);
+}
+td, th {
+    text-align: center;
+    padding: 8px;
+}
+th{
+text-align: left;
+}
+
+tr:nth-child(even) {
+    background:rgb(252, 239, 164) !important;
 }
 
 
 .table{
     background: rgba(127, 126, 129, 0.5); /* Table */
     transition: all 2s;
+    padding: 25px 16px;
 }
-.table:hover{
-    transform: scale(1.1);
-}
+
+
 #news{
-    color: white;
+    color: black;
 }
 
 #vicinity{
     width: 600px;
 }
 tr{
-    color: white;
+    color: black;
 }
 #map{
-    height: 400px;
-    width: 1100px;
-    padding: 10px;
+    height: 200px;
     border: 2px solid white;
-    margin-right: 105px; /* This is where you can move the map left or right */
+    margin-right: 25px; /* This is where you can move the map left or right */
+    margin-left: 25px;
+    max-width: 1100px;
+    padding: 0 24px;
     
 }
 h1{
+    color: #262526;
     font-family: 'Roboto', sans-serif;
 }
 
-.form{
 
-    float: right;
-    left: 200%;
-
-}
 *,*:after,*:before {
     box-sizing:border-box;
     -moz-box-sizing:border-box;
@@ -75,85 +189,12 @@ h1{
   }
   
 
-span{
+  .footer{
     font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    display: table;
+    width: 100%;
+    background: rgb(245, 225, 225);
+    text-align: center;
 
-}
-
-  /*--------------------------------------------------------------
-  2.0 - SEARCH FORM
-  --------------------------------------------------------------*/
-  /* .searchform {
-    background:#f4f4f4;
-    background:rgba(244,244,244,.79);
-    border: 1px solid #d3d3d3;
-      left: 50%;
-    padding: 2px 5px;
-    position: absolute;
-      margin: -22px 0 0 -170px;
-      top: 50%;
-    width:339px;
-    box-shadow:0 4px 9px rgba(0,0,0,.37);
-    -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
-    -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px
   }
-.Search{
-    margin: 200px;
-}
- 
-  .searchform input {
-      background:#fefefe;
-      border: none;
-      font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
-      margin-right: 5px;
-      padding: 10px;
-      width: 216px;
-      box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-      -moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-      -webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-    border-radius: 9px;
-    -moz-border-radius: 9px;
-    -webkit-border-radius: 9px
-  }
-.searchform input:focus {
-          outline: none;
-          box-shadow:0 0 4px #0d76be inset;
-          -moz-box-shadow:0 0 4px #0d76be inset;
-          -webkit-box-shadow:0 0 4px #0d76be inset;
-      }
-.searchform input::-webkit-input-placeholder {
-        font-style: italic;
-        line-height: 15px
-      }
-.searchform input:-moz-placeholder {
-        font-style: italic;
-        line-height: 15px
-      }
-.searchform button {
-      background: rgb(52,173,236);
-      background: -moz-linear-gradient(top, rgba(52,173,236,1) 0%, rgba(38,145,220,1) 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(52,173,236,1)), color-stop(100%,rgba(38,145,220,1)));
-      background: -webkit-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-      background: -o-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-      background: -ms-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-      background: linear-gradient(to bottom, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34adec', endColorstr='#2691dc',GradientType=0 );
-      border: none;
-      color:#fff;
-      cursor: pointer;
-      font: 13px/13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
-      padding: 10px;
-      width:106px;
-      box-shadow: 0 0 2px #2692dd inset;
-      -moz-box-shadow: 0 0 2px #2692dd inset;
-      -webkit-box-shadow: 0 0 2px #2692dd inset;
-    border-radius: 9px;
-    -moz-border-radius: 9px;
-    -webkit-border-radius: 9px;
-  }
-.searchform button:hover {
-          opacity:.9;
-        } */

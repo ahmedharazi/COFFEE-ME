@@ -8,6 +8,7 @@ var section = "";
 var title = "";
 var abstract = "";
 // Initialize Firebase
+// Used API key for google maps to lon
 var config = {
     apiKey: "AIzaSyBY-s5tlp_CHpiB9hPD7itnEC8grnylHPc",
     authDomain: "mapapi-1531165016443.firebaseapp.com",
@@ -19,7 +20,7 @@ var config = {
   firebase.initializeApp(config);
   var database = firebase.database();
 
-  
+//   The position for the make is relative to the users location 
 function initialize() {
     navigator.geolocation.getCurrentPosition(function (position) {
         var pos = {
@@ -36,6 +37,7 @@ function initialize() {
             location: pos,
             // in meter (5miles)
             radius: 8047,
+            // use key words from google API key to find the coffee shops
             types: ["cafe"]
         };
         // opens info window in google map 
@@ -84,20 +86,20 @@ function initialize() {
 // get back good result, no error connection to server
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var data = results.slice(0, 5);
+        var data = results.slice(0, 10);
         for (var i = 0; i < data.length; i++) {
             console.log(results);
             // var place = results[i];
             rate = results[i].rating;
-            var rating = $("<div>");
+            var rating = $("<tr>");
             rating.text(rate);
             $("#rating").append(rating);
             geo = results[i].vicinity;
-            var location = $("<div>");
+            var location = $("<tr>");
             location.text(geo);
             $("#vicinity").append(location);
             name = results[i].name;
-            var namely = $("<div>");
+            var namely = $("<tr>");
             namely.text(name);
             $("#name").append(namely);
             markers.push(createMarker(results[i]));
@@ -134,12 +136,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 $("#search").on("click", function (event) {
     event.preventDefault();
-    initialize();
-    $("#coffeeInfo ").show();
+    // when this is added the user get asked twice for map verification
+    // initialize();
+    $("#coffeeInfo").show();
 });
 
 
-
+// use the api key for the NYT to add to the bottom of the page
 
 function Headline() {
     $.ajax({
@@ -152,25 +155,30 @@ function Headline() {
         // console.log(news);
         for (var i = 0; i < news.length; i++) {
             // console.log(news[i]);
-            var temp1 = news[i].section;
-            var temp2 = news[i].title;
+            temp1 = news[i].section;
+            var section = $("<tr>");
+            section.text(temp1);
+            $("#section").append(section);
+
+            temp2 = news[i].title;
+            var title = $("<tr>");
+            title.text(temp2);
+            $("#title").append(title);
+
             var temp3 = news[i].abstract;
             // console.log(temp1);
 
-
-            section = $("<div>");
-            section.text(temp1);
-            title = $("<div>");
-            title.text(temp2);
-            abstract = $("<div>");
-            abstract.text(temp3);
-
-            $("#section").append(section);
-            $("#title").append(title);
+// creating a new section for each news headline by creatiing a (div)
+           
+            
+            abstract = $("<tr>");
+            abstract.text(temp3)
             $("#abstract").append(abstract);
         }
     });
 };
+
+//  Making the headline section
 Headline();
 database.ref().push({
     section: section,
@@ -179,3 +187,17 @@ database.ref().push({
     dateAdded: firebase.database.ServerValue.TIMESTAMP
 });
 console.log(database);
+
+// button on nav bar for Headlines only
+$("#headLine").on("click", function () {
+    $("#news").show();
+});
+
+
+
+$(function() {
+    $(".preload").fadeOut(3000, function() {
+        response();
+        $(".content").fadeIn(1000);        
+    });
+});
