@@ -6,111 +6,193 @@
 	<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
 	<title>CoffeeMe</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	    crossorigin="anonymous">
+	 crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body class="body">
+<body>
+	<div class="preload">
+		<img src="http://i.imgur.com/KUJoe.gif">
+	</div>
 
-	<div class="container">
+	<div class="content">
+	</div>
 
-		<h1 class="site-heading text-center text-white d-none d-lg-block">
-			<span class="site-heading-lower">CoffeeMe</span>
-		</h1>
-		<br>
-		<br>
 
-		<!-- the button  -->
+	<div class="page">
+		<header class="site-header"></header>
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<form class="form">
-						<div class="form-group" id="searchform cf">
-							<button type="button" class="btn btn-primary btn-lg" id="search">Coffee shops near me</button>
-						</div>
-					</form>
+			<div class="flexbox">
+				<div class="flexbox__item">
+						<h1 class="site-heading text-center text-white d-none d-lg-block">
+								<span class="site-heading-lower">CoffeeMe</span>
+							</h1>
+				</div>
+				</header>
+				<!-- Creating the side menu to the logo  -->
+				<div class="flex_item">
+					<nav class="navigation navigation--main">
+						<ul>
+							<li>
+								<!-- Here we open a new page to show the map -->
+
+								<a class="navbar-toggler" type="button" id="search">Coffee Shops Near</a>
+
+							</li>
+							<!-- we add the headline tab -->
+							<li>
+								<a class="navbar-toggler" type="button" id="headLine">Todays Headlines</a>
+
+							</li>
+							<!-- we add the headline tab -->
+							<li><a href="#contact">Contact Us</a></li>
+
+						</ul>
+
+					</nav>
 				</div>
 			</div>
 		</div>
-		<!-- the map  -->
+
+	</div>
+	<!-- Map Display -->
+
+	<section >
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-3">
-					<section class="page-section cta">
-						<div class="container">
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-									<div id="map"></div>
-								</div>
-							</div>
-						</div>
-					</section>
-				</div>
-			</div>
+			<h2>Your current location</h2>
+			<hr class="hr">
+			<div class="block"></div>
+			<div id="map"></div>
+
 		</div>
+		</div>
+	</section>
 
 
-		<br>
-		<br>
-		<!-- coffeeInfo -->
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ></div>	
-			<table hidden id="coffeeInfo"class="table table-bordered-sm">
+	<!-- Coffee Shop info box -->
+	<section hidden id="coffeeInfo">
+		<div class="container">
+			<table class="table ">
+				<h2>Coffee Shops near you</h2>
+				<hr class="hr">
+				<div class="block"></div>
+				<thead >
+					<tr id="shops">
+						<th> Ratin</th>
+						<th> Name</th>
+						<th> Address</th>
+					</tr>
+
+					<tr id="shops">
+						<th id="rating"></th>
+						<th id="name"> </th>
+						<th id="vicinity"></th>
+					</tr>
+				</thead>
+
+			</table>
+		</div>
+	</section>
+
+	<!-- the new section  -->
+	<!-- Headline Section -->
+	<section hidden id="news">
+		<div class="container">
+			<table class="table">
+				<h2>Todays Headline</h2>
+				<hr class="hr">
+				<div class="block"></div>
 				<thead>
+					
 					<tr>
-						<th id="rating"><strong>Rating</strong> </th>
-						<th id="name"><strong>Name</strong> </th>
-						<th id="vicinity"><strong>Address</strong> </th>
+						<th> Section
+							
+						</th>
+
+						<th> Title</th>
+						
+						<th> Abstract</th>
+					</tr>
+
+
+
+					<tr>
+						<th id="section"></th>
+						
+						<th id="title"> </th>
+						<th id="abstract"></th>
 					</tr>
 				</thead>
 			</table>
 
-		<br>
-		<br>
-
-		<!-- the new section -->
-		<h2>Todays Headline</h2>
-		<br>
-		<br>
-		
-		<div class="row">
-			<div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
-			<table id="news" class="table table-bordered-sm">
-				<thead>
-					<tr>
-						<th id="section"> Section</th>
-						<th id="title"> Title</th>
-						<th id="abstract"> Abstract</th>
-					</tr>
-				</thead>
-			</table>
 		</div>
+	</section>
 
-		<!-- footer -->
-	<footer class="footer text-faded text-center py-5">
-		<div class="container">
-			<p class="m-5 small">Copyright &copy; CoffeeMe 2018</p>
-		</div>
-	</footer>
-	<br><br>
 
+
+
+	<!-- Contact Section -->
+
+	<!-- footer -->
+	
+		<footer id="contact">
+			<div class="container">
+				
+					<h2>Get in touch with us!</h2>
+					<hr class="hr">
+					<div class="block"></div>
+					<div >
+						
+						<ul class="list-inline">
+							<li>
+								<i class="fa fa-envelope-o fa-fw"></i>
+								<a href="mailto:paulacaicedo03@hotmail.com">paulacaicedo03@hotmail.com</a>
+							</li>
+</ul>
+<ul class="list-inline">
+							<li class="list-inline-item">
+									<a href="http://www.linkedin.com/in/paulacaicedocodes">
+										<i class="fa fa-linkedin fa-fw-fa-3x "></i>
+									</a>				
+				
+							</li>
+							<li class="list-inline-item">
+									<a href="https://github.com/pandrea1003">
+										<i class="fa fa-github fa-fw fa-3x "></i>
+									</a>
+							</li>
+
+						</ul>
+
+
+						<div class="flexbox">
+							<p class="footer">&copy; Copyright 2018 CoffeeME</p>
+						</div>
+					</div>
+				
+			</div>
+
+		</footer>
 
 	<!-- jquery -->
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script> -->
 	<!-- A.jax -->
-	
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous"></script>
-		
+	 crossorigin="anonymous"></script>
+
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-		crossorigin="anonymous"></script>
-		
+	 crossorigin="anonymous"></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjpDu3vR2SLQOy5-JcCeuUzkvL4PrTd6w&limit=10&libraries=places"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 	<script src="assets/javascript/app.js"></script>
-	
+
+	</div>
 </body>
