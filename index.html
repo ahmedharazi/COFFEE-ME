@@ -27,9 +27,9 @@
 		<div class="container">
 			<div class="flexbox">
 				<div class="flexbox__item">
-						<h1 class="site-heading text-center text-white d-none d-lg-block">
-								<span class="site-heading-lower">CoffeeMe</span>
-							</h1>
+					<h1 class="site-heading text-center text-white d-none d-lg-block">
+						<span class="site-heading-lower">CoffeeMe</span>
+					</h1>
 				</div>
 				</header>
 				<!-- Creating the side menu to the logo  -->
@@ -39,16 +39,18 @@
 							<li>
 								<!-- Here we open a new page to show the map -->
 
-								<a class="navbar-toggler" type="button" id="search">Coffee Shops Near</a>
+								<a href="#search" class="navbar-toggler" type="button" id="search">Coffee Shops Near</a>
 
 							</li>
 							<!-- we add the headline tab -->
 							<li>
-								<a class="navbar-toggler" type="button" id="headLine">Todays Headlines</a>
+								<a href="#headline" class="navbar-toggler" type="button" id="headLine">Todays Headlines</a>
 
 							</li>
-							<!-- we add the headline tab -->
-							<li><a href="#contact">Contact Us</a></li>
+							<!-- we add the contact tab -->
+							<li>
+								<a href="#contact" id="contact">Contact Us</a>
+							</li>
 
 						</ul>
 
@@ -60,7 +62,7 @@
 	</div>
 	<!-- Map Display -->
 
-	<section >
+	<section>
 		<div class="container">
 			<h2>Your current location</h2>
 			<hr class="hr">
@@ -79,7 +81,7 @@
 				<h2>Coffee Shops near you</h2>
 				<hr class="hr">
 				<div class="block"></div>
-				<thead >
+				<thead>
 					<tr id="shops">
 						<th> Ratin</th>
 						<th> Name</th>
@@ -106,14 +108,14 @@
 				<hr class="hr">
 				<div class="block"></div>
 				<thead>
-					
+
 					<tr>
 						<th> Section
-							
+
 						</th>
 
 						<th> Title</th>
-						
+
 						<th> Abstract</th>
 					</tr>
 
@@ -121,7 +123,6 @@
 
 					<tr>
 						<th id="section"></th>
-						
 						<th id="title"> </th>
 						<th id="abstract"></th>
 					</tr>
@@ -137,45 +138,60 @@
 	<!-- Contact Section -->
 
 	<!-- footer -->
-	
-		<footer id="contact">
-			<div class="container">
-				
-					<h2>Get in touch with us!</h2>
-					<hr class="hr">
-					<div class="block"></div>
-					<div >
-						
-						<ul class="list-inline">
-							<li>
-								<i class="fa fa-envelope-o fa-fw"></i>
-								<a href="mailto:paulacaicedo03@hotmail.com">paulacaicedo03@hotmail.com</a>
-							</li>
-</ul>
-<ul class="list-inline">
-							<li class="list-inline-item">
-									<a href="http://www.linkedin.com/in/paulacaicedocodes">
-										<i class="fa fa-linkedin fa-fw-fa-3x "></i>
-									</a>				
-				
-							</li>
-							<li class="list-inline-item">
-									<a href="https://github.com/pandrea1003">
-										<i class="fa fa-github fa-fw fa-3x "></i>
-									</a>
-							</li>
 
-						</ul>
+	<footer id="contact">
+		<div class="container">
+
+			<h2>Get in touch with us!</h2>
+			<hr class="hr">
+			<div class="block"></div>
+			<div>
+
+				<ul class="list-inline">
+					<li>
+						<i class="fa fa-envelope-o fa-fw"></i>
+						<a href="mailto:paulacaicedo03@hotmail.com">paulacaicedo03@hotmail.com</a>
+					</li>
+					<li>
+						<i class="fa fa-envelope-o fa-fw"></i>
+						<a href="yeiskadlt@gmail.com">yeiskadlt@gmail.com</a>
+					</li>
+				</ul>
+				<ul class="list-inline">
+					<li class="list-inline-item">
+						<a href="http://www.linkedin.com/in/paulacaicedocodes">
+							<i class="fa fa-linkedin fa-fw-fa-3x "></i>
+						</a>
+
+					</li>
+					<li class="list-inline-item">
+						<a href="https://github.com/pandrea1003">
+							<i class="fa fa-github fa-fw fa-3x "></i>
+						</a>
+					</li>
+					<li >
+						<a href="https://www.linkedin.com/in/yeiska-de-la-torre-fernandez/">
+							<i class="fa fa-linkedin fa-fw-fa-3x "></i>
+						</a>
+
+					</li>
+					<li class="list-inline-item">
+						<a href="https://github.com/Yeiska">
+							<i class="fa fa-github fa-fw fa-3x "></i>
+						</a>
+					</li>
+
+				</ul>
 
 
-						<div class="flexbox">
-							<p class="footer">&copy; Copyright 2018 CoffeeME</p>
-						</div>
-					</div>
-				
+				<div class="flexbox">
+					<p class="footer">&copy; Copyright 2018 CoffeeME</p>
+				</div>
 			</div>
 
-		</footer>
+		</div>
+
+	</footer>
 
 	<!-- jquery -->
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
